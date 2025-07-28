@@ -36,7 +36,8 @@ class HTMLGenerator():
         with open("smarthome_status.html", "w", encoding="utf-8") as f:
             f.write(self.template.format(
                 timestamp=datetime.now().strftime("%Y-%m-%d %H:%M:%S"), 
-                device_html=device_html
+                device_html=device_html,
+                device_count=len(self.devices)
             ))
         
         #print("HTML file generated: smarthome_status.html")

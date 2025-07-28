@@ -1,11 +1,14 @@
 class Device():
     """Basisklasse für alle Smart-Home-Geräte."""
+
+    device_count = 0                        # Klassenattribut
     
     def __init__(self, name, device_type="Device", status=False, ip_address=None):
-        self.name = name
-        self.device_type = device_type
-        self.status = status
-        self.ip_address = ip_address
+        self.name = name                    # Instanzattribut
+        self.device_type = device_type      # Instanzattribut
+        self.status = status                # Instanzattribut
+        self.ip_address = ip_address        # Instanzattribut
+        Device.device_count += 1
 
     def get_status(self):
         return "ON" if self.status == True else "OFF"
