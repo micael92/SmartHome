@@ -39,6 +39,8 @@ class SmartHomeController:
             return device.start_recording()
         elif command == "stop_recording":
             return device.stop_recording()
+        elif command == "set_ip_address":
+            return device.set_ip_address(args[0])
     
         else:
             return f"Invalid command for Device {device.name}"

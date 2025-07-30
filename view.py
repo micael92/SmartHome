@@ -37,7 +37,7 @@ class HTMLGenerator():
             f.write(self.template.format(
                 timestamp=datetime.now().strftime("%Y-%m-%d %H:%M:%S"), 
                 device_html=device_html,
-                device_count=len(self.devices)
+                active_device_count=len(self.devices)
             ))
         
         #print("HTML file generated: smarthome_status.html")
@@ -86,6 +86,9 @@ class CLI():
                         self.controller.run_command(self.controller.devices[device_index], command, value)
                     elif "resolution" in command:
                         value = input("Geben Sie die Auflösung ein: ")
+                        self.controller.run_command(self.controller.devices[device_index], command, value)
+                    elif "ip_address" in command:
+                        value = input("Geben Sie die neue IP-Adresse ein: ")
                         self.controller.run_command(self.controller.devices[device_index], command, value)
                 else:
                     self.controller.run_command(self.controller.devices[device_index], command)
