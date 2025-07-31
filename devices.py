@@ -66,14 +66,11 @@ class Thermostat(Device):
 
     def set_target_temp(self, temp):
         self.target_temp = temp
-        print(f"{self.name}'s target temperature set to {self.target_temp}°C.")
         # Here add commands for the real device to set the temperature
+        print(f"{self.name}'s target temperature set to {self.target_temp}°C.")
 
     def get_actual_temp(self):
         print(f"{self.name}'s actual temperature is {self.actual_temp}°C.")
-
-    def show_commands(self):
-        return self.commands
 
 
 class SmartLight(Device):
@@ -101,9 +98,6 @@ class SmartLight(Device):
         self.set_color("white")
         self.status = True
 
-    def show_commands(self):
-        return self.commands
-
 
 class SecurityCamera(Device):
     """Specific Sub-Class for Security Cameras."""
@@ -129,6 +123,3 @@ class SecurityCamera(Device):
     def stop_recording(self):
         self.recording = False
         print(f"{self.name} has stopped recording.")
-
-    def show_commands(self):
-        return self.commands
