@@ -7,16 +7,22 @@ if __name__ == "__main__":
     # Initialize Smart Home Controller
     controller = SmartHomeController()
 
+    # Example devices
+    example_devices = [
+        Device("Steckdose 1", ip_address="192.168.0.1"),
+        Device("Steckdose 2", ip_address="192.168.0.2"),
+        Device("Lüfter 1", ip_address="192.168.0.3"),
+        Thermostat("Thermostat 1", ip_address="192.168.0.4"),
+        Thermostat("Thermostat 2", ip_address="192.168.0.5"),
+        SmartLight("Smarte Beleuchtung 1", ip_address="192.168.0.6"),
+        SmartLight("Smarte Beleuchtung 2", ip_address="192.168.0.7"),
+        SecurityCamera("Sicherheitskamera 1", ip_address="192.168.0.8"),
+        SecurityCamera("Sicherheitskamera 2", ip_address="192.168.0.9"),
+    ]
+
     # Add devices to controller
-    controller.add_device(Device("Steckdose 1", ip_address="192.168.0.1"))
-    controller.add_device(Device("Steckdose 2", ip_address="192.168.0.2"))
-    controller.add_device(Device("Lüfter 1", ip_address="192.168.0.3"))
-    controller.add_device(Thermostat("Thermostat 1", ip_address="192.168.0.11"))
-    controller.add_device(Thermostat("Thermostat 2", ip_address="192.168.0.12"))
-    controller.add_device(SmartLight("Smarte Beleuchtung 1", ip_address="192.168.0.21"))
-    controller.add_device(SmartLight("Smarte Beleuchtung 2", ip_address="192.168.0.22"))
-    controller.add_device(SecurityCamera("Sicherheitskamera 1", ip_address="192.168.0.31"))
-    controller.add_device(SecurityCamera("Sicherheitskamera 2", ip_address="192.168.0.32"))
+    for device in example_devices:
+        controller.add_device(device)
 
     print(f"Smart Home Controller initialized {Device.get_device_count()} devices.")
 
